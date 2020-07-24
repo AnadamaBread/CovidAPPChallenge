@@ -1,11 +1,78 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
     <ion-title>New Interaction</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
+
+
+<ion-content padding>
+  <form [formGroup]="new_interaction_form" (submit)="createInteraction(new_interaction_form.value)">
+    <ion-item>
+      <ion-label color="primary" position="floating">Date</ion-label>
+      <ion-input type="text" formControlName="date" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" position="floating">Time</ion-label>
+      <ion-input type="text" formControlName="time" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" position="floating">Location</ion-label>
+      <ion-input type="text" formControlName="location" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" position="floating">Topic</ion-label>
+      <ion-input type="text" formControlName="topic" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" position="floating">Key Words Communicated</ion-label>
+      <ion-input type="text" formControlName="words" required></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>Tone</ion-label>
+      <ion-select multiple = "false" cancelText = "Cancel" okText="Confirm" formControlName="tone">
+        <ion-select-option value = "Casual">Casual</ion-select-option>
+        <ion-select-option value = "Formal">Formal</ion-select-option>
+        <ion-select-option value = "Threatening">Threatening</ion-select-option>
+        <ion-select-option value = "Complement">Complement</ion-select-option>
+        <ion-select-option value = "Other">Other</ion-select-option>
+      </ion-select>
+      <!-- <ion-input type="text" formControlName="category" required></ion-input> -->
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="ion-text-wrap" color="primary" position="stacked">How did this interaction make you feel?</ion-label>
+      <ion-textarea formControlName="feel" required></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="ion-text-wrap" color="primary" position="stacked">What went well within this interaction?</ion-label>
+      <ion-textarea type="text" formControlName="pros" required></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label  class="ion-text-wrap" color="primary" position="stacked">If anything, what do you wish went differently?</ion-label>
+      <ion-textarea formControlName="edit" required></ion-textarea>
+    </ion-item>
+
+   <!-- <ion-item>
+   <ion-label color="primary">Price</ion-label>
+     <ion-range min = "0" max ="2000" color = "primary" snaps = "true" pin = "true" steps = "15" formControlName="price">
+       <ion-label slot = "start">$0</ion-label>
+       <ion-label slot ="end">$2000</ion-label>
+     </ion-range>
+     <ion-label color="primary" position="floating">Price</ion-label> 
+     <ion-input type="text" formControlName="price" required></ion-input> 
+   </ion-item> -->
+
+    <ion-button class="submit-btn" expand="block" type="submit" [disabled]="!new_interaction_form.valid">Add Interaction</ion-button>
+  </form>
 
 </ion-content>

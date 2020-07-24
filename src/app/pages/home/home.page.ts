@@ -54,13 +54,17 @@ export class HomePage implements OnInit {
   // ];
   // public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 
-  constructor(){}
+  constructor(private router : Router){}
 
   ngOnInit() {
     // const path = window.location.pathname.split('folders/')[1];
     // if (path !== undefined) {
     //   this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     // }
+  }
+
+  openNewInteractionPage(){
+    this.router.navigate(['new']);
   }
 }
 
