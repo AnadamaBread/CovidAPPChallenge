@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.page.scss'],
 })
 export class AboutPage implements OnInit {
-
+  limg = "assets/Luis.png";
+  timg = "assets/Tommy.png";
+  jimg = "assets/Johnny.png";
   constructor() { }
 
   ngOnInit() {
