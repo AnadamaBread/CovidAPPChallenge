@@ -66,5 +66,10 @@ export class HomePage implements OnInit {
   openNewInteractionPage(){
     this.router.navigate(['new']);
   }
+
+  login(){
+    this.router.navigate(['login']);
+
+  }
 }
 

@@ -27,9 +27,21 @@
         </ion-item-options>
       </ion-item-sliding>
       <!-- <ion-header>Need to update some settings?</ion-header> -->
-      <ion-button expand="block" (click)="updateUserSettings()">Update User Info</ion-button>
-      <ion-button expand="block" (click)="logout()">Logout</ion-button>
-      <ion-button expand="block" (click)="PopUp()">Delete User Profile</ion-button>
+      <ion-item>
+        <ion-button position="center" expand="block" (click)="updateUserSettings()">Update User Info</ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-button position="center" expand="block" (click)="logout()">Logout</ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-textarea readonly>
+          To delete your account, click "Delete User Account". WARNING: Deleting your account will also clear any personal information and preferences.
+          This process is permanent and can not be undone. 
+          If you wish to resume application usage later, you will have to create a new account and re-enter any preferences and personal information.
+        </ion-textarea>
+        <ion-button expand="block" (click)="PopUp()">Delete User Account</ion-button>
+      </ion-item>
+      
     </ion-list>
   </ion-list>
 </ion-content>
