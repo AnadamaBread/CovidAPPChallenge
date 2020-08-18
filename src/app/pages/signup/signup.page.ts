@@ -19,12 +19,25 @@ export class SignupPage implements OnInit {
   firstName = "";
   lastName = "";
   birthDay = "";
+  age = 0;
 
   constructor(private router:Router) { 
 
   }
 
   ngOnInit() {
+  }
+
+  calcAge(){
+	  let today:any = new Date();
+	  let birthDate:any = new Date(this.birthDay);
+
+	  this.age = today.getFullYear() - birthDate.getFullYear();
+
+	  if(today.getMonth() < birthDate.getMonth())
+	  {
+		  this.age = this.age -1;
+	  }
   }
 
   doSignup(){
