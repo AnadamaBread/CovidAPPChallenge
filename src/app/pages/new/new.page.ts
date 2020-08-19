@@ -33,4 +33,8 @@ export class NewPage implements OnInit {
     this.router.navigate(['home']);
   }
 
+  //createInteraction() {
+  //
+  //}
+
 }

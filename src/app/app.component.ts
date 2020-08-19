@@ -30,11 +30,11 @@ export class AppComponent implements OnInit {
       url: 'home',
       icon: 'home'
     },
-    {
-      title: 'Add Interaction',
-      url: 'new',
-      icon: 'add'
-    },
+    // {
+    //   title: 'Add Interaction',
+    //   url: 'new',
+    //   icon: 'add'
+    // },
     {
       title: 'Routine Log',
       url: 'routine',

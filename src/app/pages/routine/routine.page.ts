@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-routine',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoutinePage implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit() {
+  }
+
+
+  openNewRoutinePage(){
+    this.router.navigate(['newlog']);
   }
 
 }

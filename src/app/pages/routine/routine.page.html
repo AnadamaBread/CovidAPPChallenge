@@ -3,11 +3,21 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Routine Log</ion-title>
+    <ion-title>Daily Routine Log</ion-title>
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content>
+  <ion-item>
+    <ion-label>Recent Routines:</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>This will be a list of all this user's Interactions</ion-label>
+    <ion-button expand="full" (click)="openNewRoutinePage()">
+      <ion-icon slot="icon-only" name="add-circle"></ion-icon>
+    </ion-button>
+  </ion-item>
 
 </ion-content>

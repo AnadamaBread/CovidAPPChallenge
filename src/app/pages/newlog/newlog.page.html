@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="routine"></ion-back-button>
+    </ion-buttons>
+    <ion-title>New Day Routine</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="new_routine_form" (submit)="createRoutine(new_routine_form.value)">
+    <ion-item>
+      <ion-label color="primary" position="floating">Date</ion-label>
+      <ion-input type="text" formControlName="date" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" position="floating">What Time did you Wake up?</ion-label>
+      <ion-input type="text" formControlName="wake" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" position="floating">How much did you spend today?</ion-label>
+      <ion-input type="text" formControlName="money_spent" required>$</ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="ion-text-wrap" color="primary" position="stacked">What activities did you preform today?</ion-label>
+      <ion-textarea formControlName="activities" required></ion-textarea>
+    </ion-item>
+
+    <ion-button class="submit-btn" expand="block" type="submit" [disabled]="!new_routine_form.valid">Add Routine</ion-button>
+  </form>
+
+</ion-content>

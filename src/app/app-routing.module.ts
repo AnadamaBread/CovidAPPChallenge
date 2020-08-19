@@ -58,6 +58,10 @@ const routes: Routes = [
   {
     path: 'routine',
     loadChildren: () => import('./pages/routine/routine.module').then( m => m.RoutinePageModule)
+  },
+  {
+    path: 'newlog',
+    loadChildren: () => import('./pages/newlog/newlog.module').then( m => m.NewlogPageModule)
   }
 ];
 
