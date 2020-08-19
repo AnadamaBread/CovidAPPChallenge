@@ -4,9 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from 
 
 import * as firebase from 'firebase';
 import { environment } from '../../environments/environment';
-import { Observable } from 'rxjs';
-import { Subject } from 'rxjs';
-
+import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
 
 
@@ -15,5 +13,31 @@ import { Router } from '@angular/router';
 })
 export class UserService {
 
-  constructor() { }
+  db = firebase.firestore();
+  private eventSub = new Subject<any>();
+  interactions:Array<any> = [];
+  routines:Array<any> = [];
+  users:Array<any> = [];
+  current_user: any = null;
+
+  publishEvent(data:any){
+    this.eventSub.next(data);
+  }
+
+  getObservable(): Subject<any> {
+    return this.eventSub;
+  }
+
+
+  constructor( public router:Router) { }
+
+  getInteractions(): any {
+    var self = this;
+    if(firebase.auth().currentUser != null){
+      console.log("Getting user info");
+      
+    }
+  }
+
+
 }
