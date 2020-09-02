@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase';
+
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
   new_user_form: FormGroup;
-  constructor(private router:Router, public formBuilder:FormBuilder) { }
+  constructor(public router:Router, public formBuilder:FormBuilder) { }
 
   ngOnInit() {
     this.new_user_form = this.formBuilder.group({
@@ -20,6 +22,17 @@ export class LoginPage implements OnInit {
   
   signUp() {
     this.router.navigate(['signup'])
+  }
+
+  loginGoogle() {
+    let provider = new firebase.auth.GoogleAuthProvider()
+    provider.addScope('profile')
+    provider.addScope('email')
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+      let token = result.credential.providerId
+      let user = result.user
+      this.router.navigate(['routine'])
+    })
   }
 
 }
