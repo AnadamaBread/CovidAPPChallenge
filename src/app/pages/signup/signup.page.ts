@@ -104,8 +104,8 @@ export class SignupPage implements OnInit {
           alert("Login failed, try again.")
         })
         console.log("Login successful")
-        alert("Login successful, please fill out next page.")
-        self.router.navigate(['/adduserdetails'])
+        alert("Login successful, please Login.")
+        self.router.navigate(['/login'])
         })
 
       })
