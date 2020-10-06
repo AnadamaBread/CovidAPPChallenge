@@ -67,8 +67,8 @@ export class HomePage implements OnInit {
     this.router.navigate(['new']);
   }
 
-  login(){
-    this.router.navigate(['login']);
+  logout(){
+    this.router.navigate(['start']);
 
   }
 }
