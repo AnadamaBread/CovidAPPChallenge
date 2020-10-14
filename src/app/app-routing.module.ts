@@ -70,6 +70,10 @@ const routes: Routes = [
   {
     path: 'doclogin',
     loadChildren: () => import('./pages/doclogin/doclogin.module').then( m => m.DocloginPageModule)
+  },
+  {
+    path: 'logdetail',
+    loadChildren: () => import('./pages/logdetail/logdetail.module').then( m => m.LogdetailPageModule)
   }
 ];
 
