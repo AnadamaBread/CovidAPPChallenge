@@ -41,47 +41,47 @@ export class UserService {
   var user = firebase.auth().currentUser;
   console.log("getting user specific Routines and Interactions")
 
-  if (user != null) {
-    self.interactions = [];
-    this.db.collection("interactions").where("iuid", "==", firebase.auth().currentUser.uid).onSnapshot(function (querySnapshot) {
-      console.log("Interactions loading for client............");
-      self.interactions = [];
-      querySnapshot.forEach(function (doc) {
-        var i= doc.data();
-        self.interactions.push({
-          date: i.date,
-          time: i.time,
-          location: i.location,
-          topic: i.topic,
-          words: i.words,
-          tone: i.tone,
-          feel: i.feel,
-          pros: i.pros,
-          edit: i.edit 
-        })
-      });
-        console.log("Interactions loaded for Client user!!")
-    })
-  }
+  // if (user != null) {
+  //   self.interactions = [];
+  //   this.db.collection("interactions").where("iuid", "==", firebase.auth().currentUser.uid).onSnapshot(function (querySnapshot) {
+  //     console.log("Interactions loading for client............");
+  //     self.interactions = [];
+  //     querySnapshot.forEach(function (doc) {
+  //       var i= doc.data();
+  //       self.interactions.push({
+  //         date: i.date,
+  //         time: i.time,
+  //         location: i.location,
+  //         topic: i.topic,
+  //         words: i.words,
+  //         tone: i.tone,
+  //         feel: i.feel,
+  //         pros: i.pros,
+  //         edit: i.edit 
+  //       })
+  //     });
+  //       console.log("Interactions loaded for Client user!!")
+  //   })
+  // }
 
-    if (user != null) {
-      self.routines = [];
-      this.db.collection("routines").where("ruid", "==", firebase.auth().currentUser.uid).onSnapshot(function (querySnapshot) {
-        console.log(" Routines loading for client............");
-        self.routines = [];
-        querySnapshot.forEach(function (doc) {
-          var r= doc.data();
-          self.routines.push({
-            date: r.date,
-            wake: r.wake,
-            exercise: r.exercise,
-            money_spent: r.money_spent,
-            activities: r.activities
-          })
-        });
-          console.log("Routines loaded for Client user!!")
-      })
-    }
+  //   if (user != null) {
+  //     self.routines = [];
+  //     this.db.collection("routines").where("ruid", "==", firebase.auth().currentUser.uid).onSnapshot(function (querySnapshot) {
+  //       console.log(" Routines loading for client............");
+  //       self.routines = [];
+  //       querySnapshot.forEach(function (doc) {
+  //         var r= doc.data();
+  //         self.routines.push({
+  //           date: r.date,
+  //           wake: r.wake,
+  //           exercise: r.exercise,
+  //           money_spent: r.money_spent,
+  //           activities: r.activities
+  //         })
+  //       });
+  //         console.log("Routines loaded for Client user!!")
+  //     })
+  //   }
     // this.products.push({"id":1,"name":"VR Headset","category":"Toy","price":100,"img":"assets/gear-vr.jpg","description":"virtual reality headset!"});
 
     // DEFAULT INTERACTIONS
@@ -90,7 +90,7 @@ export class UserService {
         "date" : "October 10th 2020",
         "time" : "12:05 PM",
         "location" : "Local Shopping Mall",
-        "Topic" : "Business",
+        "topic" : "Business",
         "words": "Critical, Important, Necessary",
         "tone": "Formal",
         "feel": "Made me feel rushed, busy, and disorganized.",
@@ -101,7 +101,7 @@ export class UserService {
       "date" : "August 4th 2020",
       "time" : "1:30 PM",
       "location" : "McDonalds",
-      "Topic" : "Ordering Food",
+      "topic" : "Ordering Food",
       "words": "Please, Thank You, I'm Sorry",
       "tone": "Casual",
       "feel": "I felt like I was doing nothing wrong while ordering food inside instead of the drive through.",
@@ -112,7 +112,7 @@ export class UserService {
       "date" : "September 10th 2020",
       "time" : "9:05 AM",
       "location" : "Outside Home",
-      "Topic" : "Walking my dog wearing a mask",
+      "topic" : "Walking my dog wearing a mask",
       "words": "Why, Stupid, Pointless, Liberal",
       "tone": "Threatening",
       "feel": "Unsafe, threatened, hurtful, and confused",
@@ -123,7 +123,7 @@ export class UserService {
       "date" : "July 4th 2020",
       "time" : "10:15 PM",
       "location" : "Beach",
-      "Topic" : "Holiday Ruined",
+      "topic" : "Holiday Ruined",
       "words": "Leave, Spread-Out, Social Distance",
       "tone": "Formal",
       "feel": "I realized what I was doing was wrong. I felt bad and sorry for it.",

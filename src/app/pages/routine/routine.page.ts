@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { MenuController } from '@ionic/angular';
+import { UserService } from '../../apis/user.service';
+
+import * as firebase from 'firebase';
+
+
 
 @Component({
   selector: 'app-routine',
@@ -9,14 +14,59 @@ import { MenuController } from '@ionic/angular';
 })
 export class RoutinePage implements OnInit {
 
-  constructor(private router : Router) { }
+  routines=[];
+  curr_routine:any;
+  routine:any;
+  datab = firebase.firestore();
+
+  constructor(private router : Router, public us: UserService) {
+
+     // this.us.getObservable().subscribe((data =>{
+    //   console.log('Routine Data Received', data);
+    //   this.routines = this.us.getRoutines();
+    // }))
+    
+    this.routines = this.us.routines;
+
+    console.log(firebase.auth().currentUser)
+    if ( firebase.auth().currentUser == null){
+      console.log("user not logged in");
+    }
+
+    this.router.routeReuseStrategy.shouldReuseRoute = function() {
+      return false;
+    }
+    
+    // Keep routines loaded after login
+    this.routine = this.router.events.subscribe((event) => {
+      if(event instanceof NavigationEnd){
+        this.router.navigated = false;
+      }
+    });
+   }
 
   ngOnInit() {
+    this.routines = this.us.routines;
+    // this.routines = this.us.getRoutines();
   }
 
 
   openNewRoutinePage(){
     this.router.navigate(['newlog']);
+  }
+
+  goToRoutine(routine){
+    console.log("clicked on: ", routine.date);
+    this.router.navigate(["logdetail", routine]);
+  }
+
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
   }
 
 }
