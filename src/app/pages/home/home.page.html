@@ -1,7 +1,57 @@
+<ion-menu side="start" menuId="first" contentId="main">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Interpersonal Therapy</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+
+      <ion-list-header>Welcome,{{ current_username }}! </ion-list-header>
+
+      <ion-item>
+        <ion-button fill = "clear"(click)="toInteractions()">
+          <!-- <ion-icon name = "leaf">Interactions</ion-icon> -->
+          Interactions
+        </ion-button>
+      </ion-item>
+
+      <ion-item>
+        <ion-button fill = "clear" (click)="toRoutine()">Routine Log</ion-button>
+      </ion-item>
+
+      <ion-item>
+        <ion-button fill = "clear" (click)="toMessages()">Messages</ion-button>
+      </ion-item>
+
+      <ion-item>
+        <ion-button fill = "clear" (click)="toAccInfo()">Account Information</ion-button>
+      </ion-item>
+
+      <ion-item>
+        <ion-button fill = "clear" (click)="toAbout()">About</ion-button>
+      </ion-item>
+      
+      <ion-item>
+        <ion-button fill = "clear" (click)="toSettings()">Settings</ion-button>
+      </ion-item>
+
+      <ion-item>
+        <ion-button fill = "clear" (click)="toEmergency()">Emergency</ion-button>
+      </ion-item>
+
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="main"></ion-router-outlet>
+
+<!--  -->
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color = "primary">
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button id = "first"></ion-menu-button>
     </ion-buttons>
     <ion-buttons slot="end">
       <ion-button (click)="logout()">
@@ -40,3 +90,9 @@
   
 
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button color = "medium" expand="full" (click)="toLauncher"><ion-icon slot ="icon-only" name="apps"></ion-icon></ion-button>
+  </ion-toolbar>
+</ion-footer>

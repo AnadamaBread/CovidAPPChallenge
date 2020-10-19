@@ -19,6 +19,8 @@ export class RoutinePage implements OnInit {
   routine:any;
   datab = firebase.firestore();
 
+  current_username: any = "Anon";
+
   constructor(private router : Router, public us: UserService) {
 
      // this.us.getObservable().subscribe((data =>{
@@ -67,6 +69,39 @@ export class RoutinePage implements OnInit {
       console.log('Async operation has ended');
       event.target.complete();
     }, 2000);
+  }
+
+  toInteractions(){
+    this.router.navigate(['home']);
+  }
+
+  toRoutine() {
+    this.router.navigate(['routine']);
+  }
+
+  toMessages(){
+    this.router.navigate(['sms']);
+
+  }
+
+  toAccInfo(){
+    this.router.navigate(['account']);
+
+  }
+
+  toAbout(){
+    this.router.navigate(['about']);
+
+  }
+
+  toSettings(){
+    this.router.navigate(['settings']);
+
+  }
+  toEmergency(){
+    this.router.navigate(['emergency']);
+
+
   }
 
 }

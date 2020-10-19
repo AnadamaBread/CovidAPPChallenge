@@ -74,6 +74,10 @@ const routes: Routes = [
   {
     path: 'logdetail',
     loadChildren: () => import('./pages/logdetail/logdetail.module').then( m => m.LogdetailPageModule)
+  },
+  {
+    path: 'launch',
+    loadChildren: () => import('./pages/launch/launch.module').then( m => m.LaunchPageModule)
   }
 ];
 

@@ -21,6 +21,9 @@ export class HomePage implements OnInit {
   curr_interaction:any;
   interact:any;
   datab = firebase.firestore();
+
+  current_username: any = "Anon";
+
   constructor(private router : Router, public us : UserService){
     
 
@@ -76,11 +79,45 @@ export class HomePage implements OnInit {
 
   doRefresh(event) {
     console.log('Begin async operation');
+    this.router.navigate(['home']);
 
     setTimeout(() => {
       console.log('Async operation has ended');
       event.target.complete();
     }, 2000);
+  }
+
+  toInteractions(){
+    this.router.navigate(['home']);
+  }
+
+  toRoutine() {
+    this.router.navigate(['routine']);
+  }
+
+  toMessages(){
+    this.router.navigate(['sms']);
+
+  }
+
+  toAccInfo(){
+    this.router.navigate(['account']);
+
+  }
+
+  toAbout(){
+    this.router.navigate(['about']);
+
+  }
+
+  toSettings(){
+    this.router.navigate(['settings']);
+
+  }
+  toEmergency(){
+    this.router.navigate(['emergency']);
+
+
   }
 }
 
