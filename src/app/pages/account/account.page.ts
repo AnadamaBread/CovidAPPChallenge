@@ -53,5 +53,8 @@ export class AccountPage implements OnInit {
 
 
   }
+  toLauncher(){
+    this.router.navigate(['launch']);
+  }
 
 }

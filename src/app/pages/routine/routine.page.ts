@@ -103,5 +103,8 @@ export class RoutinePage implements OnInit {
 
 
   }
+  toLauncher(){
+    this.router.navigate(['launch']);
+  }
 
 }

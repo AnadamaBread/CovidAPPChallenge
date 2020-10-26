@@ -48,5 +48,8 @@ export class SmsPage implements OnInit {
 
 
   }
+  toLauncher(){
+    this.router.navigate(['launch']);
+  }
 
 }

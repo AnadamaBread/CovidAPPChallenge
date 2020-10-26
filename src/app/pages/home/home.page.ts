@@ -116,8 +116,9 @@ export class HomePage implements OnInit {
   }
   toEmergency(){
     this.router.navigate(['emergency']);
-
-
+  }
+  toLauncher(){
+    this.router.navigate(['launch']);
   }
 }
 

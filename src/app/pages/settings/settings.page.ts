@@ -56,5 +56,8 @@ export class SettingsPage implements OnInit {
 
 
   }
+  toLauncher(){
+    this.router.navigate(['launch']);
+  }
 
 }

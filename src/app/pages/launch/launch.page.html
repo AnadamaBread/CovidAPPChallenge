@@ -1,9 +1,38 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>launch</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+    <ion-title>LaunchPad</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="toInteractions()" color="primary" shape="round" expand="full">Home</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="toRoutine()" color="primary" shape="round" expand="full">Routine</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="toMessages()" color="primary" shape="round" expand="full">Messaging</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="toAccInfo()" color="success" shape="round" expand="full">Account</ion-button>
+      </ion-col>
+       <ion-col>
+        <ion-button (click)="toSettings()" color="success" shape="round" expand="full">Settings</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="toAbout()" color="success" shape="round" expand="full">About</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button  (click)="toEmergency()" color="danger" shape="round" expand="full">Emergency</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

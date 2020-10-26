@@ -50,5 +50,8 @@ export class AboutPage implements OnInit {
 
 
   }
+  toLauncher(){
+    this.router.navigate(['launch']);
+  }
 
 }

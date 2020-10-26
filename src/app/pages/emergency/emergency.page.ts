@@ -47,5 +47,8 @@ export class EmergencyPage implements OnInit {
 
 
   }
+  toLauncher(){
+    this.router.navigate(['launch']);
+  }s
 
 }
