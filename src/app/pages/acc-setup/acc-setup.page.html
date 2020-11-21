@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot = "start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot = "end">
+        <ion-button (click)="ClearInfo()">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+    <ion-title>Account Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-down"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <ion-item>
+      <ion-label color="primary">Date: {{ curr_r.date }}</ion-label> 
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="secondary">Started Day at {{ curr_r.wake }}</ion-label> 
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Exercise:</ion-label>
+      <ion-textarea> {{curr_r.exercise}} </ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Money Spent</ion-label> 
+      <ion-input [(ngModel)]="curr_r.money_spent" readonly></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="secondary">Activities</ion-label>
+      <ion-textarea> {{curr_r.activities}} </ion-textarea>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

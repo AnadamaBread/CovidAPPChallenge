@@ -78,6 +78,10 @@ const routes: Routes = [
   {
     path: 'launch',
     loadChildren: () => import('./pages/launch/launch.module').then( m => m.LaunchPageModule)
+  },
+  {
+    path: 'acc-setup',
+    loadChildren: () => import('./pages/acc-setup/acc-setup.module').then( m => m.AccSetupPageModule)
   }
 ];
 
