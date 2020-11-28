@@ -82,6 +82,10 @@ const routes: Routes = [
   {
     path: 'acc-setup',
     loadChildren: () => import('./pages/acc-setup/acc-setup.module').then( m => m.AccSetupPageModule)
+  },
+  {
+    path: 'docsignup',
+    loadChildren: () => import('./pages/docsignup/docsignup.module').then( m => m.DocsignupPageModule)
   }
 ];
 
